@@ -2,41 +2,37 @@
 
 A Spring Boot implementation of a Rate Limiting service.
 
-## Assignment Document
+## Assignment
 
 The original assignment is available at [docs/Zadani_Java_Developer.pdf](docs/Zadani_Java_Developer.pdf).
 
-## Architecture Decision Records
+## Documentation
 
-All design decisions are documented in Architecture Decision Records (ADRs): [docs/adr](docs/adr)
+- [Part 1: Single-node Rate Limiter](docs/part1-answers.md) - API, Algorithm, Data Structure, Concurrency
 
 ## Build & Run
 
-### Prerequisites
-- Java 25
-- Maven (or use included Maven Wrapper mvnw/mvnw.cmd)
-
-### Commands
-
 ```bash
-# Build the project
-mvn clean install
+# Build
+mvnw.cmd clean install
 
-# Run the application
-mvn spring-boot:run
+# Run
+mvnw.cmd spring-boot:run
 ```
 
-## Git Branches
+## Test Script
 
-The implementation follows a feature branch workflow:
+```bash
+# Usage: ./test.sh <count> <client-id>
+./test.sh 150 client1
+```
 
-| Branch | Content |
-|--------|---------|
-| `main` | Base structure and documentation |
-| `feature/part1-single-node` | API, Algorithm, Data Structure, Concurrency |
-| `feature/part2-distributed` | Distributed System considerations |
-| `feature/part3-production` | Configuration, Testing |
-| `feature/cyclic-dependencies` | Bonus: Cyclic dependency resolution |
+Example output:
+```
+Sending 150 requests for client 'client1'...
+    100 200
+     50 429
+```
 
 ## Technology Stack
 
